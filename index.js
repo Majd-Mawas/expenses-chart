@@ -1,12 +1,11 @@
 import datas from "/data.json" assert {type:'json'};
-const spendPercent = document.getElementById('spend-percent')
-// console.log(spendPercent);
+const spendPercent = document.getElementById('spend-percent');
+render();
 
 function render() {
   let highPrice = 0;
   for (let index = 0; index < datas.length; index++) 
       highPrice=highPrice>datas[index].amount?highPrice:datas[index].amount
-
     datas.forEach(element => {
       spendPercent.innerHTML+=
       `
@@ -18,5 +17,4 @@ function render() {
   });
 }
 
-render()
-// console.log(datas);
+
