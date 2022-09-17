@@ -1,8 +1,14 @@
-import datas from "/data.json" assert {type:'json'};
 const spendPercent = document.getElementById('spend-percent')
-// console.log(spendPercent);
+let datas
+
+fetch('./data.json')
+.then(response => response.json())
+.then(data => {datas = data; render()});
 
 function render() {
+
+  if(datas == null) return
+  else{
   let highPrice = 0;
   for (let index = 0; index < datas.length; index++) 
       highPrice=highPrice>datas[index].amount?highPrice:datas[index].amount
@@ -16,7 +22,6 @@ function render() {
       </span>
       `
   });
-}
+}}
 
 render()
-// console.log(datas);
